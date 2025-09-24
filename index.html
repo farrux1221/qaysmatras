@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QaysMatras.uz | Качественные Матрасы и Подушки</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2b4c6f;
+            --secondary: #4a7b9d;
+            --accent: #f8f3e6;
+            --light: #ffffff;
+            --dark: #1a1a1a;
+            --gray: #f5f5f5;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./logos.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        /* Products Section */
+        .products {
+            background: var(--gray);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-desc {
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .product-features {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        /* Trusted By Section */
+        .trusted-by {
+            background: var(--accent);
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .client-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .client-logo img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--light);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Floating Phone Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            z-index: 99;
+            transition: var(--transition);
+        }
+        
+        .floating-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .floating-btn i {
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                font-size: 1.5rem;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background: var(--light);
+                width: 80%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 20px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Video Section - Updated to be a single large section */
+        .video-section {
+            background: var(--light);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-content {
+            padding: 30px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .video-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .video-desc {
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        .abut-logo{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+           justify-content: center;
+        }
+        .abut-logo img{
+            width: 250px;
+              border-radius: 10px;
+          
+        }
+        @media screen and (max-width: 768px){
+            .abut-logo{
+                flex-direction: column;
+            }
+            .abut-logo img{
+                width: 200px;
+            }
+            .about-content{
+                font-size: 1rem;
+            }
+            
+        }
+.logos{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.logos img{
+    width: 70px;
+      border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container navbar">
+     <div class="logos">
+           <img src="././logo.jpg" alt="" >
+            <a href="#" class="logo">Qays<span>Matras</span></a>
+     </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="#products" class="nav-link">Продукция</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">О нас</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Преобразите Ваш Сон</h1>
+            <p class="hero-subtitle">Качественные матрасы и подушки для максимального комфорта и поддержки</p>
+            <a href="#products" class="btn">Купить сейчас</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Наша Продукция</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIREhUTExITExUWFxUaFRcYFxYfFhoZFxodHRgZFxgdISsgGBolHBUTIjMiJyktMDAwFx8zODMvPSgtMCsBCgoKDg0OGBAQGS0lHyUtLS4tLS0rLS0tLS0tLS0tLS01LS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALoBDwMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUCAwYBB//EAEIQAAEDAgMEBgYHBwQDAQAAAAEAAhEDBBIhMQVBUWEGEyJxgZEyQqHB0fAUI1JikrHhFTNDU3KCogcWNPGDk8Ik/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECA//EACARAQEBAAIBBQEBAAAAAAAAAAABEQISMRMhQVFhcQP/2gAMAwEAAhEDEQA/APuKIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIuf6Y3Fw2mxtu9rHueCS6cLmtzdTLgCaeIZYgCRnHEWTR0C1urNGrmjxC4RvSSkIbdCpaOyGKqcVF39Fzmxw5PLXcWhXFO2GogtMGYlrvZG7ULc4fqa6F13TGr2fiC1u2jSHrhUhoDj4Bpjyhei2bx/wAR71fTiatX7Yoj1z4NcfyGS11NuUhpjd3D4wqkUhoMxn6o137jvXgoRoSPx+4Zf9q+nDstP2/T+y/xwj35rW/pA0aMJ/uaoDqROpnnA/8AoLzB94/hYR3ZaJ0ialf7jJ0pDxqD4cwtR6QVTEMp56ZkjzBWgSdS2Tuw+7yXpog6kCfumFekNrY7btaP4XhkfEOKjVNtXB/iNby+rn8z8hZm3aBlhPDL9Vp6jQ5NOsAmAfLM5D8tE6xNrKltO6EE1JHCGQf08lPo9IyPTZ4tn9VXtokzmPbnzkjnv3juQUo10n7LT8/PBLxi7V/T27RMSXNJ0lrvgptG6Y/0Xtd3ELkaoaJ0/A7wAkan25LAUxvIHg78v03LN/zXs7dFyTK9Rp7NU5c3EeRMexb27brNGZY/XXI+z57lnpTs6ZFS09u/ap+TviApdDa9J28tPAj3iQs9aup6LVRuWPnC9ro1ggx3raooiIgIiICIiAiIgIiICpOln7ph4VB7QVdqo6UUnOoyGOqYXNLmtzdhzBIbq6AZgZmMgTAOuNyxKqLESSHZg5QdIOoPI7+5vBRP9vsYcVlUdZk54WAG3JP27d3Z7y3A7mvdmXjXtD2uDhvI3OHpA55EGRhOhyVo+phe1uHEHOc05gBoaxxDjOolrG5fzAu/LPKRW/tyvb5XlqS3+fbA1KZ5vox1tLdMB4E+kVdWN3RuKYqUK1Kqw+swgjuOeXcVlQ1knP3fH4KrvejVvVeaoDqFwJ+voksqx945iqI+2HDI6bseEXFFrs8hG7LXn8leuaeA8viVTdftG2H1lNm0KQ1dTApXQHOkT1dQ/wBLm9ymbI6Q2l2S2lV+sbk+i9pbWad4dSdDhHcppiRgEToBqcJ+GnPRY9SZMARlnh9KeBy5b/yUqq1ojFMEjVpwydPdqszTHzC12RB+j5g8sszlO/XXXzKCm77Q7pHvUxrAvHMHzPwTRCc0zG+J0Hw7lhQpEdovGIiDloJMRlG/UZGNOEmjSGEAEkbiAACM49kZ8pRtAAk5yYnTdPxKujQ9s6lvisBRByBb5D84UhzeHtGviDkjmx9lw4Zj2z3IIponKcM/0mAe8eKxpjI5RBj0svDPMaiDvBW9gBJOHkM8u8Zb59gWcfcb+I/DuQRMLvtN/wAV51JnmYzEbtJjvPmpjWj7MH2LGq1ogQZJgREE6xmd8FBDYQfWALTBDhD8shMDQwT7V49jTvb5fopQpgACHmOMeztTHJMLSMp+eI3IIYoNPrD8P6LIGq13Zq5RxMCNMgYMyc+XipLaUnfH9M/lOShX1ehQk1LihTz/AIlSmBPKSOHs5LKpZ2hcDR7f7oI8oB9qkUNs1PXbSPc+PYZXN1OkNphLqddtXD/IxVhkNCKYO6N2Uzlqn7ZqPIFLZ148HR1QUqLTz+seHgd7QeAKzZF93X/thgiWvHMDEB+GVJo39JxAD2ydAcnHuBzXDup7TJBbQsKYnMVK9d7o3RgpADzKV9iX1YEPvaNIH1aVq12WpBdWe+QYE9kaLNxdfQUVF0N2ULW36sVatUY3Ox1TLjMcIDW8GgCB4q9WVEREBERAREQUW2ejFKu41abnW9wQAatOO0BoKrD2aoH3hI3EKgvLyvZz9LojqwBFxQDnUcv5jD2qEmcyS3PN4hd4i1x5WJigt67Xhr2Oa9rgC1wILSDmHNIyI35KUwxn593z71BvOijQTUtKhtKhMkNAdbvMyS+gezJOrmYXHiq+rtWrbkNvqPUsn9/TcX2x4YzGKiN/bGEQO0V0nKVMcBabXr2PXdV1zWW/YHVdqicQ+rx0HkgAl7W9ZTc3MaHIH6XfbIt7xrG16DXBgDWuk9Y0kw0sqD6xsFoGR4k6Z8xX6P2z7ltU4mRWkEOBpVA54qDtEloLiWmJBcXEwZk9FQuxRNR9YHC0VMRGfZ60BojXIPmOZ1U5XMWTZWp+xtoW+drefSWDMULwSdfVuGgOmNA4HQZrFnTNtMhm0LerYOJAD3APt3HSBWbLZOsGIXUMMZE74njw+eS1vqNc0teA8OLhgIBxAOIzbwyURlaupVWh9N7ajTo5j5afEZLWWODoHaZHaxbssgDvJ1Mz4LnLroRbsYaluX2VWO062f1bInMOpyGFoBOcNOUyFxm1+gd23D19sNpsYXEPZcPbWOLM9Y2oTOmUFxiACrP6V9QdcU6QANSmAPtub7yNFpq7YoAwLiic9A5pPGMjrC+fbIvdkWwDa9rXsnafW0XZ67zic4DQS0ZAcFa/S+j9QGKlsZBmaTQc85JLBnImTmriOoftm2aMTq1EBoklzgBEZkkmAPyW5ly1ztWxlhIILXTunSZnLKeC+fs6R9H7OpipPYauX7m3biyMwHCm3XeMWe/cvK/Sl9Vxq0NlX1TCD26uGgwt1AlxcxwGfMeKzbYsk+X0h4dua098j25xu3HxWm3c14DsLhMgiZ0MHMcwV84odGNq1Ln6T1tGzlgYGhzqhDfvsaxjapzObyYy4LpLfos8tDbi/vKwAgta8UaflSAfHe8pOfsWL7aV1QthNWvRpN41HtYP8iFUXXSegRFOjcXeIgDq6JNJxOYirUw0nDucVK2Z0dtLY4qVvTa4+vGKoe+o6Xu8SrJhxHFMiBhM6zOeRgiMMePJO9THMG92pUIFO1t7RpPpXFZ1V3iymMIcS7IYxMDMxCf7cv34se1XMxZ4aNtRYAYj0nF7zoN66pzQRB08fzGYXjZGufP4jj3Zd2iztVzFLoTaPA691zdEa/SLiq/PmwODD5QrCy6K2NH93Z2zTxFJhd+IiVbFu/evGvndHz+mvd4QecGjJo4ZaaARp+kbzHr2yM/+u5elEGAPGJ9i8cJ+fzWNTOTpExPEbzMZeImTyKr9rdIbS1E17ilSMTgc4dYe6mO248gEHTbPHYHOfzUlarZsMb3BbVGhERAREQEREBERAXjmgiCJB1B0XqIOWueipo4nWL20cU4raoC60fJkxT1ok55sy4tKgbIvWUq3V3NKpZvc3AxlRwfbPJIkW9bTQN+rOHk3We4Wi9s6dZjqdVjajHCHNcAWkcwVqcvtMQnw4lpEhog5n1h6JPGIPHQ7wVRXl9c0Kj3DF1YBI+rLmOdicSXFubCQYzMCBkt7+jVe3OKyuCGb7auS+keAZU/eUshA9IDLKF7s7pDSDxRr9Zb13H0KwjEdPqqgJpvHANdv0Gi6ceUn6xy42/K22RfdcwOLQ0kTAdiaW7nNMCWnu9xMimSOzmSNDxHGZzO4/qJ1Fnaa6Yw5HmHZQfHCfDmt7+WqzfLU8NmPKCoO0dn29VsVaFGqOD6bHDyIK3deNIJI3QZB92m/kVGvmSMyRO4EjhHaGe46RrBlTBAZbUY6ulSpspiJwMDWkZ5MLCIggT5KWCsGrKVLRqpsLMhm3cN7e77QPPOZzM5b2rwLU9mKctMsxExqDPqnLOOffBu17l6saTsQBz7s58tQqjbPSmytQevuqNMjVuIF/wD62y72ILpeF4mN8THLj5hcm3pq6t/w9n311lIf1fVUTO7rakR+FZ/RNu3EwLPZ7XakudXrNyjsiBS3aRqhjp3OzAHeddBwMRMxlwngqXaXSiytnhj7ikDhjq2nHUmRhApMl+mLd7o1UP8ATltQ4r6+vL0kQ5hqGnQP/hpxA5Sup2TsO1tRFvb0aI34GNaT3kCT4pq45gbfr1f+Ns68q8HVAyhTPjVIfH9h8Vl+ztsVv4llZCMi0Pr1R+LAyR3Fdqii45Ch0EDo+k3t5cACOrD20aJHA06AZI5EldBsvYttatw0KFKiPuMaPEkCSeZU9EBERAREQEREBERAREQEREBERAUe/saVdhp1qbKjDq1wBHt381IRBydXYd3aybOqK9LP/wDNcOMgcKNfNzRoAHBwEbljS6WUnOFGsKlnXcYLKwDct5p1JwVOALSTJGS65R76xpV2GnVpsqMOrXtBHkd61OX2mI8hpEZA5EZ6+qQBkN8n+ngtV2/d5qkuehdSmIsbyrbt/kvmpREaBknHSzj0XRyUV9vt1sjBsypwdiuGnvc2I8iFrYYvCVqubynRbjq1GUm73Pc1rfNxAVEOi+17mPpO0KNq31mWdM4j3VqvaYeYVjs3/TbZ1J2N9E3VXKaty41XmN5Duz5ALBiqr9OLZ8stRWvagIBbb0XvbqJmpkwZTniy9ikWtPbFeA23tdn0xkOtca1UAZNhlMtY3LcXGNF3NKk1gDWtDWjQAAAdwCzTTHFt/wBPxVEXl7dXIMzTY4UKBkyZp0YJzO9xKudkdELC0INC0oU3DRwYC/8AGZd7VdoooiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiD/2Q==" alt="Роскошный Матрас" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">Luna</h3>
+                        <p class="product-desc">Прочная конструкция с независимыми пружинами обеспечивает оптимальную поддержку позвоночника и комфортный сон.</p>
+                        <ul class="product-features">
+                            <li>Пружины: Спиральные, Китай</li>
+                            <li>Наполнитель: 5 см пенополиуретан плотностью 65</li>
+                            <li>Двойной слой: Самаркандский ковролон</li>
+                            <li>Верхний слой: 2 см пенополиуретан плотностью 22</li>
+                            <li>Чехол: Хлопок или синтетический материал по желанию клиента</li>
+                        </ul>
+                         <div class="price">1 000 000 so'm</div>
+                        <a href="tel:+998978050060" class="btn">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="data:image/jpeg;base64,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IGrIDvYzlxHDqdTdR9p2RArWL8NrvTLIe6nLIXG8CdSSaaVDZgaijymPuRv83l/mrIDvYwPl6YLyGvh6mI4e5PML+UG97C33T5kinGsXRAzpRxS3W738q6/6hcX9wJdMTw2nU3VftIbFeG9b0iaZ6FTlMjUTt818T0KvEa7VKi+TSU5qdNjmv6kjTvtK5juBk5fIWoMuqqxGtv7T6vi+FVUJNREraW8xCaD5fcb/ADeRNfAIxP8A9RbMCai+UfuAQflZM3PVVuMvuPnVeliBlLgg0ipZLFieu/WSFLFtiQadMEGolmY8uVZam4ORa9sgPK52F/UXH3tOVsC1NjlSoysqhQlPzA3uQSP1ms585NbYXqcVsunmmESktFEArFsqsijyzVe17X/v0A+8tvBeHg2FNcqk3FttrEj03A9Nesj+GcNDOpK3JVUsWzBEt9I9T+a3TTcy+8KwXlJc2udSZj/mvR68R1YTDimgA00nvESQiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiBo1MHcAzjxPCqVTdVnfECsYjw7kN6LPTP9JKyNq8FrZuZKFT+o08h+bWv8y8zBHtAhOEcK8uxe11FgAMoVewHSTYEyBEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERA//Z" alt="">
+                    <div class="product-content">
+                        <h3 class="product-title">Ортопедический Матрас "Sol"</h3>
+                        <p class="product-desc">Ортопедический матрас, разработанный для поддержки позвоночника и обеспечения здорового сна.</p>
+                        <ul class="product-features">
+                            <li>Анатомическая поддержка позвоночника</li>
+                            <li>Оптимальная жесткость для разных весовых категорий</li>
+                            <li>Гипоаллергенные материалы</li>
+                            <li>Отличная воздухопроницаемость</li>
+                            <li>Специальные зоны поддержки для плеч и бедер</li>
+                        </ul>
+                          <div class="price">1 350 000 so'm</div>
+                        <a href="tel:+998978050060" class="btn">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                                       <img src="data:image/jpeg;base64,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" alt="Ортопедический Матрас" class="product-img">
+
+                    <div class="product-content">
+                        <h3 class="product-title">Анатомический Матрас "Zen"</h3>
+                        <p class="product-desc">Инновационный матрас, который точно повторяет контуры тела, обеспечивая максимальный комфорт во время сна.</p>
+                        <ul class="product-features">
+                            <li>Точно повторяет контуры тела</li>
+                            <li>Поддерживает позвоночник в анатомически правильном положении</li>
+                            <li>Адаптируется к разным весовым зонам тела</li>
+                            <li>Натуральные дышащие материалы</li>
+                            <li>Улучшает кровообращение и качество сна</li>
+                        </ul>
+                          <div class="price">1 950 000 so'm</div>
+                        <a href="tel:+998978050060" class="btn">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section - Single large video section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Видео О Нашей Продукции</h2>
+            <div class="video-container">
+                <video controls poster="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80">
+                    <source src="./Дизайн без названия.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает воспроизведение видео.
+                </video>
+            </div>
+            <div class="video-content">
+                <h3 class="video-title">Откройте для себя мир комфортного сна</h3>
+                <p class="video-desc">Посмотрите наше видео, чтобы узнать больше о том, как наши матрасы и подушки создаются с использованием новейших технологий и материалов премиум-класса. Узнайте, почему тысячи клиентов по всему Узбекистану выбирают QaysMatras для своего сна.</p>
+                <a href="tel:+998978050060" class="cta-button">Заказать консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О Нас</h2>
+           <div class="abut-logo">
+             <img src="./logo.jpg" alt="">
+            <div class="about-content">
+                <p>В QaysMatras мы верим, что качественный сон - это основа здоровой, счастливой жизни. Уже более 20 лет мы создаем премиальные матрасы и подушки, используя только лучшие материалы и новейшие технологии сна.</p>
+                <p>Наша продукция разработана экспертами по сну и протестирована тысячами довольных клиентов. Мы стремимся помочь вам достичь идеального ночного сна ночь за ночью.</p>
+                <p>Когда вы выбираете QaysMatras, вы покупаете не просто матрас или подушку - вы инвестируете в свое здоровье, благополучие и качество жизни.</p>
+            </div>
+           </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+   
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с Нами</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Адрес</h3>
+                            <a href=" https://maps.app.goo.gl/Dwb5PZarsLHRWFUj7">
+                            <p>ул. Чукурсай,41/9A</p>
+
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Телефон</h3>
+                           <a href="tel:+998978050060"> <p>+998 (97)805 00 60</p></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@qaysmatras.uz</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" class="form-input" placeholder="Ваше имя" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="Ваш email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" class="form-input" placeholder="Ваше сообщение" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                
+                <a href="https://www.instagram.com/maatras_qays?igsh=d2FlZGljN2g4cjkx" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/qaysmatras" class="social-link"><i class="fab fa-telegram"></i></a>
+               
+            </div>
+            <p class="copyright">© 2025 <a href="https://edev.uz" style="color: #fff;">Edev.uz</a> Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:+99897805060" class="floating-btn">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script>
+        // Sticky Navigation
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
